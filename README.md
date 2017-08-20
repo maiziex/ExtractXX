@@ -1,42 +1,66 @@
-# Run Quast 
+## Dependencies:
+ExtractXX utilizes <a href="https://www.python.org/downloads/">Python3</a>, <a href="http://bio-bwa.sourceforge.net/">BWA</a>, <a href="http://samtools.sourceforge.net/">SAMtools</a>. To be able to execute the above programs by typing their name on the command line, the program executables must be in one of the directories listed in the PATH environment variable.
 
 ## Running The Code:
-### Step 1: 
-```
-python QuastXX_step1.py -l 10000 -i ../Lysis_Cr_0.2/supernova_contig.fasta -o_dir ../Lysis_Cr_0.2/ -r /oak/stanford/groups/arend/Xin/SimProj/Quast_results/genome_na12878.fa.gz
-```
-```
-usage: QuastXX_step1.py [-h] [--lines LINES] [--input_file INPUT_FILE]
-                        [--out_dir OUT_DIR] [--reference REFERENCE]
+### Step1:
 
-Run Quast for 10X data -- step1: Split WGS contig file to multiple small files
-(maximum 100 files, so make sure total_lines_of_WGS_contig_file/lines <= 100),
-and run Quast separately
+```
+python ExtractXX_step1.py -i ../../S_12878_barcoded_sorted_rmdup_bybarcode.bam --out_dir ../../extract_fastqs/ 
+```
+```
+usage: ExtractXX_step1.py [-h] [--input_file INPUT_FILE] [--out_dir OUT_DIR]
+
+Run 10x Extract -- step1
 
 optional arguments:
   -h, --help            show this help message and exit
-  --lines LINES, -l LINES
-                        line number for each small contig file
   --input_file INPUT_FILE, -i INPUT_FILE
-                        Input contig filename
+                        input bam file
   --out_dir OUT_DIR, -o_dir OUT_DIR
                         Directory to store outputs
-  --reference REFERENCE, -r REFERENCE
-                        Referece fasta file
 ```
+### Step2:
 
-### Step 2: 
 ```
-python QuastXX_step2.py -o_dir ../Lysis_Cr_0.2/
+python ExtractXX_step2.py -f1 ../../S12878_RA.fastq -f2 ../../S12878_I1.fastq -b ../doc/barcode4M.fa --out_dir ../../extract_fastqs/ --h5_dir ../../qual_20/ --Cr 0.19 
 ```
 ```
-usage: QuastXX_step2.py [-h] [--out_dir OUT_DIR]
+usage: ExtractXX_step2.py [-h] [--out_dir OUT_DIR] [--h5_dir H5_DIR]
+                          [--barcode_whitelist BARCODE_WHITELIST] [--Cr CR]
+                          [--fastq_RA FASTQ_RA] [--fastq_I1 FASTQ_I1]
+                          [--flag FLAG]
 
-Run Quast for 10X data -- step2: Concatenate all quast alignment files
-together to generate file: all_alignments_supernova_contig-fasta.tsv
+Run 10x Extract -- step2
 
 optional arguments:
   -h, --help            show this help message and exit
   --out_dir OUT_DIR, -o_dir OUT_DIR
                         Directory to store outputs
+  --h5_dir H5_DIR, -h5_dir H5_DIR
+                        Directory for storing h5 files of molecules
+  --barcode_whitelist BARCODE_WHITELIST, -b BARCODE_WHITELIST
+                        Barcode white list
+  --Cr CR, -c CR        Read coverage per molecule
+  --fastq_RA FASTQ_RA, -f1 FASTQ_RA
+                        origin fastq reads file
+  --fastq_I1 FASTQ_I1, -f2 FASTQ_I1
+                        origin fastq index file
+  --flag FLAG, -flag FLAG
+                        all or subset
+
+```
+### Step3:
+
+```
+python ExtractXX_step3.py --out_dir ../../extract_fastqs/
+```
+```
+usage: ExtractXX_step3.py [-h] [--out_dir OUT_DIR]
+
+Run 10x Extract -- step 3: concatenate all fastqs files
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --out_dir OUT_DIR, -o OUT_DIR
+                        Directory to store output
 ```
