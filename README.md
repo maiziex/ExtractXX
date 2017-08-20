@@ -33,7 +33,7 @@ python ExtractXX_step2.py -f1 ../../S12878_RA.fastq -f2 ../../S12878_I1.fastq -b
 ```
 Or use flag "all" to extract all fastqs files
 ```
-python ExtractXX_step2.py -f1 ../../S12878_RA.fastq -f2 ../../S12878_I1.fastq -b ../doc/barcode4M.fa --out_dir ../../extract_fastqs/ --h5_dir ../../qual_20/ --Cr 0.19 --flag all
+python ExtractXX_step2.py -f1 ../../S12878_RA.fastq -f2 ../../S12878_I1.fastq -b barcode4M.fa --out_dir ../../extract_fastqs/ --h5_dir ../../qual_20/ --Cr 0.19 --flag all
 ```
 ```
 usage: ExtractXX_step2.py [-h] [--out_dir OUT_DIR] [--h5_dir H5_DIR]
