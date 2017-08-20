@@ -2,7 +2,7 @@
 ExtractXX utilizes <a href="https://www.python.org/downloads/">Python3</a>, <a href="http://bio-bwa.sourceforge.net/">BWA</a>, <a href="http://samtools.sourceforge.net/">SAMtools</a>. To be able to execute the above programs by typing their name on the command line, the program executables must be in one of the directories listed in the PATH environment variable.
 
 
-Click <a href="http://xinzhouneuroscience.org/wp-content/uploads/2017/08/barcode4M.fa.zip">barcode4M.fa</a> to download barcode whitelist, 
+Click <a href="http://xinzhouneuroscience.org/wp-content/uploads/2017/08/barcode4M.fa.zip">barcode4M.fa</a> to download 10X barcode whitelist, 
 Or 
 ```
 wget http://xinzhouneuroscience.org/wp-content/uploads/2017/08/barcode4M.fa
