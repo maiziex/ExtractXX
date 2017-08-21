@@ -1,5 +1,5 @@
 ## ExtractXX:
-To get h5 related files about molecules, it can use <a href="https://github.com/maiziex/BasicXX.git">BasicXX</a>.
+To get h5 related files about molecules first, it can use <a href="https://github.com/maiziex/BasicXX.git">BasicXX</a>.
 
 ## Dependencies:
 ExtractXX utilizes <a href="https://www.python.org/downloads/">Python3</a>, <a href="http://bio-bwa.sourceforge.net/">BWA</a>, <a href="http://samtools.sourceforge.net/">SAMtools</a>. To be able to execute the above programs by typing their name on the command line, the program executables must be in one of the directories listed in the PATH environment variable.
