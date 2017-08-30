@@ -12,8 +12,8 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         os.system("python ExtractXX_step3.py -h")
     else:
-        if not os.path.exists(args.h5_dir):
-            os.system("mkdir " + args.h5_dir)
+        if not os.path.exists(args.out_dir):
+            os.system("mkdir " + args.out_dir)
         
         command_1 = "./cat_fastqs.sh "  + " " + args.out_dir 
         os.system(command_1)
